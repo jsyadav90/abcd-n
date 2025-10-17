@@ -2,7 +2,7 @@
   --primary-color: #2563eb; /* Blue Accent */
   --bg-color: #ffffff;
   --header-bg-color: #111827;
-  --menu-hover-color:#2563eb;
+  --menu-hover-color: #2563eb;
   --text-color: #1e293b;
   --border-color: #e2e8f0;
   --font-family: "Segoe UI", Roboto, sans-serif;
@@ -10,22 +10,22 @@
   --nav-width: 14rem;
   --spacing: 1rem;
   --radius: 0.5rem;
-
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif; 
+  font-family: "Poppins", sans-serif;
 }
 
-a{
-    text-decoration: none;
-    cursor: pointer;
-    color: #ccc;
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #ccc;
 }
-html, body {
+html,
+body {
   height: 100%;
   /* overflow: hidden;  */
 }
@@ -34,7 +34,7 @@ body {
   font-family: var(--font-family);
   background: var(--bg-color);
   color: var(--text-color);
-  overflow-x: hidden
+  overflow-x: hidden;
 }
 
 /* HEADER BAR */
@@ -49,7 +49,6 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  
 }
 
 /*! LEFT SECTION */
@@ -73,8 +72,8 @@ header {
   color: #ccc;
   white-space: nowrap;
 }
-.school-logo a{
-    color: #ccc;
+.school-logo a {
+  color: #ccc;
 }
 
 /*! RIGHT SECTION */
@@ -82,7 +81,6 @@ header {
   display: flex;
   align-items: center;
 }
-
 
 /*todo SEARCH CONTAINER */
 .search-container {
@@ -131,8 +129,6 @@ header {
   color: #2563eb;
 }
 
-
-
 /* Optional small-screen search icon */
 .search-icon {
   display: none;
@@ -140,12 +136,6 @@ header {
   margin-left: 1rem;
   cursor: pointer;
 }
-
-
-
-
-
-
 
 /*!=========================== SIDEBAR MENU =====================================*/
 .menu-bar {
@@ -160,9 +150,8 @@ header {
   z-index: 999;
   padding-bottom: 1rem;
   display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Vertical layout */
@@ -193,7 +182,7 @@ header {
 }
 
 .menu a:hover {
-  background:var(--menu-hover-color);
+  background: var(--menu-hover-color);
 }
 
 /* Icon styling */
@@ -219,16 +208,16 @@ header {
   top: 0;
   left: 100%;
   background: #374151;
-  border-radius: 0 var(--radius) var(--radius) 0 ;
+  border-radius: 0 var(--radius) var(--radius) 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: none;
   flex-direction: column;
   min-width: 12rem;
   z-index: 9999;
-  -webkit-border-radius: 0 var(--radius) var(--radius) ;
-  -moz-border-radius: 0 var(--radius) var(--radius) ;
-  -ms-border-radius: 0 var(--radius) var(--radius) ;
-  -o-border-radius: 0 var(--radius) var(--radius) ;
+  -webkit-border-radius: 0 var(--radius) var(--radius);
+  -moz-border-radius: 0 var(--radius) var(--radius);
+  -ms-border-radius: 0 var(--radius) var(--radius);
+  -o-border-radius: 0 var(--radius) var(--radius);
 }
 
 /* Dropdown items */
@@ -273,8 +262,6 @@ header {
 .menu-bar.collapsed {
   transform: translateX(-100%);
 }
-
-
 
 /*! === USER DETAILS FIXED AT BOTTOM === */
 .user-details {
@@ -349,7 +336,6 @@ header {
   color: #9ca3af;
 }
 
-
 /* Show panel when active */
 .user-details.active .user-panel {
   display: flex;
@@ -367,9 +353,6 @@ header {
   }
 }
 
-
-
-
 /*! ================================= MAIN CONTENT AREA ============================= */
 .main-content {
   position: relative;
@@ -377,14 +360,13 @@ header {
   /* padding: 1rem; */
   min-height: calc(100vh - var(--header-height));
   background: #f9fafb;
-   overflow: hidden;
+  overflow: hidden;
   /* overflow-y: auto; */
   max-width: calc(100vw - var(--nav-width));
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
 }
-
 
 /* Optional: limit container width and center it */
 .content-container {
@@ -417,26 +399,34 @@ header {
   -o-transition: all 0.3s ease;
 }
 
-
-
-
-
-
-
-
-
 /*! ==================== INVENTORY PAGE =========================== */
-/* .main-content{
-  padding: 10px;
-} */
+/* ===============================
+   INVENTORY PAGE STYLING
+   =============================== */
+
+.page-title {
+  text-align: center;
+}
+
+/* this is use when click on back button then hide table into inventory file.  */
+.hidden {
+  display: none !important;
+}  
+
+/* === GRID VIEW FOR CARDS === */
 .inventory-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
   transition: all 0.6s ease;
+  margin-top: 10px;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -ms-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
 }
 
-/* --- CARD DESIGN --- */
+/* === CARD STYLE === */
 .inventory-card {
   background: #fff;
   border-radius: 10px;
@@ -454,22 +444,26 @@ header {
   transition: all 0.4s;
 }
 
+#card-container {
+  padding: 10px;
+}
 .inventory-card:hover {
-  transform: translateY(5px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  -webkit-transform: translateY(5px);
-  -moz-transform: translateY(5px);
-  -ms-transform: translateY(5px);
-  -o-transform: translateY(5px);
+  transform: scale(1.1);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 
-/* --- MORPH EFFECT --- */
+/* === MORPH EFFECT === */
 .inventory-grid.morphing {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
   scrollbar-width: thin;
-  padding: 5px;
+  padding-bottom: 5px;
+  gap: 10px;
 }
 
 .inventory-grid.morphing::-webkit-scrollbar {
@@ -480,7 +474,7 @@ header {
   border-radius: 10px;
 }
 
-/* Cards become buttons */
+/* Cards become compact buttons */
 .inventory-card.morph {
   flex: 0 0 auto;
   height: 40px !important;
@@ -493,12 +487,12 @@ header {
   align-items: center;
   justify-content: center;
   box-shadow: none;
-  transition: all 0.8s ease-in-out;
+  transition: all 0.4s ease-in-out;
   margin-right: 10px;
-  -webkit-transition: all 0.8s ease-in-out;
-  -moz-transition: all 0.8s ease-in-out;
-  -ms-transition: all 0.8s ease-in-out;
-  -o-transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
 }
 
 .inventory-card.morph img,
@@ -516,28 +510,27 @@ header {
   background-color: #2563eb;
 }
 
-/* Smooth fade for table */
+/* === FADE ANIMATION === */
 .fade-in {
-  animation: fadeIn 0.8s ease-in-out;
-  -webkit-animation: fadeIn 0.8s ease-in-out;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Table section appearance */
-.table-section {
+/* .table-section {
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
  
 }
-
-.hidden {
-  display: none !important;
-}
-
-
+*/

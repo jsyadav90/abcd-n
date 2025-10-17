@@ -103,44 +103,56 @@
       </div>
     </nav>
     <!--! ===== MAIN CONTENT AREA ===== -->
-    <main class="main-content">
-  <h2 class="page-title">Inventory Overview</h2>
+<main class="main-content">
+  <div style="padding: 10px;">
+    <h2 class="page-title">Inventory Overview</h2>
 
-  <!-- PRODUCT CARDS -->
-  <section id="card-container" class="inventory-grid">
-    <div class="inventory-card" data-category="desktop">
-      <img src="../../assets/icons/desktop.png" alt="Desktop" />
-      <h3>Desktop</h3>
-      <p>Total Quantity: <span>17</span></p>
-    </div>
+     <!-- PRODUCT CARDS -->
+    <section id="card-container" class="inventory-grid">
+      <div class="inventory-card" data-category="desktop">
+        <img src="../../assets/icons/desktop.png" alt="Desktop" />
+        <h3>Desktop</h3>
+        <p>Total Quantity: <span>17</span></p>
+      </div>
+  
+      <div class="inventory-card" data-category="laptop">
+        <img src="../../assets/icons/laptop.png" alt="Laptop" />
+        <h3>Laptop</h3>
+        <p>Total Quantity: <span>22</span></p>
+      </div>
+  
+      <div class="inventory-card" data-category="mobile">
+        <img src="../../assets/icons/mobile.png" alt="Mobile" />
+        <h3>Mobile</h3>
+        <p>Total Quantity: <span>18</span></p>
+      </div>
+  
+      <div class="inventory-card" data-category="printer">
+        <img src="../../assets/icons/printer.png" alt="Printer" />
+        <h3>Printer</h3>
+        <p>Total Quantity: <span>10</span></p>
+      </div>
+  
+      <div class="inventory-card" data-category="scanner">
+        <img src="../../assets/icons/scanner.png" alt="Scanner" />
+        <h3>Scanner</h3>
+        <p>Total Quantity: <span>8</span></p>
+      </div>
+  
+      <div class="inventory-card" data-category="camera">
+        <img src="../../assets/icons/camera.png" alt="Camera" />
+        <h3>Camera</h3>
+        <p>Total Quantity: <span>8</span></p>
+      </div>
+      
+    </section>
+   
+  
+    <!-- DYNAMIC TABLE -->
+    <section id="details-section" class="hidden table-section fade-in"></section>
+  </div>
 
-    <div class="inventory-card" data-category="laptop">
-      <img src="../../assets/icons/laptop.png" alt="Laptop" />
-      <h3>Laptop</h3>
-      <p>Total Quantity: <span>22</span></p>
-    </div>
 
-    <div class="inventory-card" data-category="mobile">
-      <img src="../../assets/icons/mobile.png" alt="Mobile" />
-      <h3>Mobile</h3>
-      <p>Total Quantity: <span>18</span></p>
-    </div>
-
-    <div class="inventory-card" data-category="printer">
-      <img src="../../assets/icons/printer.png" alt="Printer" />
-      <h3>Printer</h3>
-      <p>Total Quantity: <span>10</span></p>
-    </div>
-
-    <div class="inventory-card" data-category="scanner">
-      <img src="../../assets/icons/scanner.png" alt="Scanner" />
-      <h3>Scanner</h3>
-      <p>Total Quantity: <span>8</span></p>
-    </div>
-  </section>
-
-  <!-- DYNAMIC TABLE -->
-  <section id="details-section" class="hidden table-section fade-in"></section>
 </main>
 
     <script src="../js/script.js"></script>
