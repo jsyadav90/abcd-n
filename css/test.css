@@ -2,6 +2,10 @@
    INVENTORY PAGE STYLING
    =============================== */
 
+
+   .page-title{
+    text-align: center;
+   }
 /* === GRID VIEW FOR CARDS === */
 .inventory-grid {
   display: grid;
@@ -65,8 +69,12 @@
   align-items: center;
   justify-content: center;
   box-shadow: none;
-  transition: all 0.6s ease-in-out;
+  transition: all 0.5s ease-in-out;
   margin-right: 10px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 
 .inventory-card.morph img,
@@ -95,7 +103,7 @@
 }
 
 /* === TABLE SECTION === */
-.table-section {
+/* .table-section {
   background: white;
   padding: 20px;
   border-radius: 10px;
@@ -110,7 +118,7 @@
 }
 
 .table-section th, .table-section td {
-  padding: 10px;
+  
   text-align: left;
   border-bottom: 1px solid #e5e7eb;
   white-space: nowrap;
@@ -119,12 +127,13 @@
 .table-section th {
   background-color: #f3f4f6;
   font-weight: 600;
-}
+} */
 
 /* === RESPONSIVE STYLING === */
 
 /* Tablets (≤1024px) */
-@media (max-width: 1024px) {
+
+/* @media (max-width: 1024px) {
   .inventory-grid {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 15px;
@@ -137,10 +146,10 @@
   .inventory-card h3 {
     font-size: 15px;
   }
-}
+} */
 
 /* Small tablets & large phones (≤768px) */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .inventory-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 12px;
@@ -176,10 +185,10 @@
   .table-section th, .table-section td {
     padding: 8px;
   }
-}
+} */
 
 /* Mobile (≤480px) */
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .inventory-grid {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -203,7 +212,7 @@
     font-size: 11px;
   }
 
-  /* Morph state scroll bar */
+
   .inventory-grid.morphing {
     gap: 8px;
     padding: 5px 0;
@@ -218,4 +227,4 @@
   .table-section {
     padding: 8px;
   }
-}
+} */
