@@ -1,0 +1,255 @@
+    /* ===== Table Section ===== */
+.table-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* Prevents viewport overflow */
+  overflow: hidden;
+}
+
+/* ===== Action Buttons ===== */
+.table-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.8rem;
+
+  /* Sticky on top */
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 20;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #0056b3;
+}
+.filter-btn {
+  background: #6c757d;
+}
+.filter-btn:hover {
+  background: #565e64;
+}
+.export-btn {
+  background: #28a745;
+}
+.export-btn:hover {
+  background: #1e7e34;
+}
+
+/* ===== Column Filter Bar ===== */
+.column-filters {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.3s ease;
+
+  /* Sticky under action buttons */
+  position: sticky;
+  top: 3.2rem; /* Slightly below .table-actions */
+  z-index: 15;
+}
+
+.column-filters .filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.column-filters label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.filter-select {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  outline: none;
+  background: #fff;
+  transition: border 0.2s ease;
+}
+.filter-select:focus {
+  border-color: #007bff;
+}
+
+.filter-select[type="text"] {
+  width: 200px;
+}
+/* ===== Table Container (Scrollable Body) ===== */
+.table-container {
+  overflow-y: auto;
+  overflow-x: auto;
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* ===== Table ===== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  font-size: 0.95rem;
+}
+
+/* Table Header (Sticky) */
+.data-table thead th {
+  position: sticky;
+  top: -1px; /* below action buttons + filters */
+  background: #f3f3f3;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 10;
+  border-bottom: 2px solid #ccc;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  padding: 0.2rem;
+  border: 1px solid #ccc;
+}
+
+.data-table th {
+  padding: 0.6rem;
+}
+
+thead th:first-child,
+tbody td:first-child {
+  width: 4rem;
+  max-width: 4rem;
+  text-align: center;
+}
+thead th:last-child,
+tbody td:last-child {
+  width: 5rem;
+  max-width: 5rem;
+  text-align: center;
+}
+
+/* Alternate Rows */
+/* .data-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.data-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+} */
+
+.data-table tbody tr.even-row {
+  background-color: #f2f2f2;
+}
+
+.data-table tbody tr.odd-row {
+  background-color: #ffffff;
+}
+
+/* Highlight selected row */
+.data-table tbody tr.selected {
+  background-color: #d4e9ff !important;
+}
+
+/* Hover Effect */
+.data-table tbody tr:hover {
+  background-color: #e6f0ff;
+  transition: background 0.3s ease;
+}
+
+/* ===== Selected Row ===== */
+.data-table tbody tr.selected {
+  background-color: #cfe2ff !important;
+  border-left: 4px solid #0d6efd;
+}
+
+/* ===== Status Badges ===== */
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.status.active {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.status.inactive {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* ===== Action Buttons (Inside Table) ===== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+}
+.action-buttons button {
+  background: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.action-buttons button:hover {
+  background: #007bff1a;
+  border-color: #007bff;
+}
+.action-buttons .material-icons {
+  font-size: 20px;
+  color: #333;
+}
+.action-buttons button:hover .material-icons {
+  color: #007bff;
+}
+
+/* ===== Scrollbar Styling (Optional) ===== */
+.table-container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.table-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* ===== Fade In Animation ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

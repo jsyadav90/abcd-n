@@ -1,0 +1,221 @@
+/* ===============================
+   INVENTORY PAGE STYLING
+   =============================== */
+
+/* === GRID VIEW FOR CARDS === */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  transition: all 0.6s ease;
+  margin-top: 10px;
+}
+
+/* === CARD STYLE === */
+.inventory-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.6s ease-in-out;
+}
+
+.inventory-card img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 8px;
+  transition: all 0.4s;
+}
+
+.inventory-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* === MORPH EFFECT === */
+.inventory-grid.morphing {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: 5px;
+  gap: 10px;
+}
+
+.inventory-grid.morphing::-webkit-scrollbar {
+  height: 6px;
+}
+.inventory-grid.morphing::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 10px;
+}
+
+/* Cards become compact buttons */
+.inventory-card.morph {
+  flex: 0 0 auto;
+  height: 40px !important;
+  width: auto;
+  padding: 0 15px;
+  border-radius: 20px;
+  background-color: #1f2937;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  transition: all 0.6s ease-in-out;
+  margin-right: 10px;
+}
+
+.inventory-card.morph img,
+.inventory-card.morph p {
+  display: none;
+}
+
+.inventory-card.morph h3 {
+  margin: 0;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.inventory-card.morph.active {
+  background-color: #2563eb;
+}
+
+/* === FADE ANIMATION === */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === TABLE SECTION === */
+.table-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 25px;
+  overflow-x: auto;
+}
+
+.table-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-section th, .table-section td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.table-section th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+/* === RESPONSIVE STYLING === */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .inventory-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+  }
+
+  .inventory-card {
+    padding: 12px;
+  }
+
+  .inventory-card h3 {
+    font-size: 15px;
+  }
+}
+
+/* Small tablets & large phones (≤768px) */
+@media (max-width: 768px) {
+  .inventory-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+
+  .inventory-card {
+    padding: 10px;
+  }
+
+  .inventory-card img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .inventory-card h3 {
+    font-size: 14px;
+  }
+
+  .inventory-card p {
+    font-size: 12px;
+  }
+
+  .inventory-card.morph {
+    height: 38px !important;
+    font-size: 13px;
+    padding: 0 10px;
+  }
+
+  .table-section {
+    padding: 10px;
+  }
+
+  .table-section th, .table-section td {
+    padding: 8px;
+  }
+}
+
+/* Mobile (≤480px) */
+@media (max-width: 480px) {
+  .inventory-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .inventory-card {
+    padding: 12px;
+    border-radius: 8px;
+  }
+
+  .inventory-card img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .inventory-card h3 {
+    font-size: 14px;
+  }
+
+  .inventory-card p {
+    font-size: 11px;
+  }
+
+  /* Morph state scroll bar */
+  .inventory-grid.morphing {
+    gap: 8px;
+    padding: 5px 0;
+  }
+
+  .inventory-card.morph {
+    height: 35px !important;
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .table-section {
+    padding: 8px;
+  }
+}

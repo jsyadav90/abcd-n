@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABCD</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-left">
+        <button class="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="school-logo"><a href="index.html">ABCD</a></div>
+      </div>
+      <div class="header-right">
+        <div class="search-container" id="searchBox" role="search">
+          <input
+            type="text"
+            placeholder="Search the application..."
+            aria-label="Search the application"
+          />
+          <div class="search-icon-container">
+            <button
+              type="button"
+              id="searchToggle"
+              class="material-icons search-icon"
+            >
+              search
+            </button>
+          </div>
+        </div>
+        <span class="search-icon">&#128269;</span>
+      </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="menu-bar">
+      <ul class="menu">
+        <li>
+          <a href="pages/users.html">
+            <span class="material-icons">person</span> User
+          </a>
+        </li>
+
+        <li class="dropdown has-submenu">
+          <a> <span class="material-icons">inventory_2</span> Inventory </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="pages/inventory.html"
+                ><span class="material-icons">inventory</span> Inventory</a
+              >
+            </li>
+            <li>
+              <a href="pages/accessory.html"
+                ><span class="material-icons">headphones</span> Accessories</a
+              >
+            </li>
+            <li>
+              <a href="pages/peripheral.html"
+                ><span class="material-icons">keyboard</span> Peripherals</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="pages/issueItem.html">
+            <span class="material-icons">assignment_ind</span> Issue To
+          </a>
+        </li>
+
+        <li>
+          <a href="pages/repair.html">
+            <span class="material-icons">build</span> Repair
+          </a>
+        </li>
+
+        <li>
+          <a href="pages/upgrade.html">
+            <span class="material-icons">upgrade</span> Upgrade
+          </a>
+        </li>
+
+        <li>
+          <a href="pages/report.html">
+            <span class="material-icons">bar_chart</span> Report
+          </a>
+        </li>
+        <li>
+          <a href="test.html">
+            <span class="material-icons">bar_chart</span> Test Page
+          </a>
+        </li>
+      </ul>
+      <div class="user-details">
+        <a href="#" id="userToggle">
+          <span class="material-icons">account_circle</span>
+          John Doe
+        </a>
+        <div class="user-panel" id="userPanel">
+          <button><span class="material-icons">person</span> Profile</button>
+          <button>
+            <span class="material-icons">image</span> Change Image
+          </button>
+          <button><span class="material-icons">logout</span> Logout</button>
+        </div>
+      </div>
+    </nav>
+    <!--! ===== MAIN CONTENT AREA ===== -->
+    <main class="main-content">
+      <h1>Welcome to ABCD ERP</h1>
+      <p>This is your dashboard. Add your main page content here.</p>
+      <p>
+        Scrollable content area below the fixed topbar and next to the fixed
+        sidebar.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+        porttitor nunc in ipsum pretium, sit amet malesuada lectus venenatis.
+        Vestibulum id lorem in arcu rutrum fermentum. Nullam dapibus, arcu non
+        pharetra hendrerit, nulla leo pretium erat, sed faucibus urna nulla et
+        dolor. Nam finibus, justo a feugiat rhoncus, dolor nulla bibendum est,
+        nec tempor sem massa et nisi. Praesent condimentum leo ut ipsum euismod
+        eleifend.
+      </p>
+    </main>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

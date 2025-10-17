@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessories - ABCD</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!--! Header -->
+    <header>
+      <!--todo header left  -->
+      <div class="header-left">
+        <button class="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="school-logo"><a href="../../index.html">ABCD</a></div>
+      </div>
+
+      <!--todo header right start  -->
+      <div class="header-right">
+        <div class="search-container" id="searchBox" role="search">
+          <input
+            type="text"
+            placeholder="Search the application..."
+            aria-label="Search the application"
+          />
+          <div class="search-icon-container">
+            <button
+              type="button"
+              id="searchToggle"
+              class="material-icons search-icon"
+            >
+              search
+            </button>
+        </div>
+        <span class="search-icon">&#128269;</span>
+      </div>
+    </header>
+
+    <!--! Navigation Bar -->
+    <nav class="menu-bar">
+      <ul class="menu">
+        <li>
+          <a href="users.html"> <span class="material-icons">person</span> User </a>
+        </li>
+
+        <li class="dropdown has-submenu">
+          <a> <span class="material-icons">inventory_2</span> Inventory </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="inventory.html"
+                ><span class="material-icons">inventory</span> Inventory</a
+              >
+            </li>
+            <li>
+              <a href="accessory.html"
+                ><span class="material-icons">headphones</span> Accessories</a
+              >
+            </li>
+            <li>
+              <a href="peripheral.html"
+                ><span class="material-icons">keyboard</span> Peripherals</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="issueItem.html">
+            <span class="material-icons">assignment_ind</span> Issue To
+          </a>
+        </li>
+
+        <li>
+          <a href="repair.html"> <span class="material-icons">build</span> Repair </a>
+        </li>
+
+        <li>
+          <a href="upgrade.html"> <span class="material-icons">upgrade</span> Upgrade </a>
+        </li>
+
+        <li>
+          <a href="report.html"> <span class="material-icons">bar_chart</span> Report </a>
+        </li>
+      </ul>
+      <div class="user-details">
+        <a href="#" id="userToggle">
+          <span class="material-icons">account_circle</span>
+          John Doe
+        </a>
+        <div class="user-panel" id="userPanel">
+          <button><span class="material-icons">person</span> Profile</button>
+          <button>
+            <span class="material-icons">image</span> Change Image
+          </button>
+          <button><span class="material-icons">logout</span> Logout</button>
+        </div>
+      </div>
+    </nav>
+    <!--! ===== MAIN CONTENT AREA ===== -->
+    <main class="main-content"></main>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

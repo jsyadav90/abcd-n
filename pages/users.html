@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users - ABCD</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/table.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+   
+  </head>
+  <body>
+    <!--! Header -->
+    <header>
+      <!--todo header left  -->
+      <div class="header-left">
+        <button class="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="school-logo"><a href="../../index.html">ABCD</a></div>
+      </div>
+
+      <!--todo header right start  -->
+      <div class="header-right">
+        <div class="search-container" id="searchBox" role="search">
+          <input
+            type="text"
+            placeholder="Search the application..."
+            aria-label="Search the application"
+          />
+          <div class="search-icon-container">
+            <button
+              type="button"
+              id="searchToggle"
+              class="material-icons search-icon"
+            >
+              search
+            </button>
+        </div>
+        <span class="search-icon">&#128269;</span>
+      </div>
+    </header>
+
+    <!--! Navigation Bar -->
+    <nav class="menu-bar">
+      <ul class="menu">
+        <li>
+          <a href="users.html">
+            <span class="material-icons">person</span> User
+          </a>
+        </li>
+
+        <li class="dropdown has-submenu">
+          <a> <span class="material-icons">inventory_2</span> Inventory </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="inventory.html"
+                ><span class="material-icons">inventory</span> Inventory</a
+              >
+            </li>
+            <li>
+              <a href="accessory.html"
+                ><span class="material-icons">headphones</span> Accessories</a
+              >
+            </li>
+            <li>
+              <a href="peripheral.html"
+                ><span class="material-icons">keyboard</span> Peripherals</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="issueItem.html">
+            <span class="material-icons">assignment_ind</span> Issue To
+          </a>
+        </li>
+
+        <li>
+          <a href="repair.html">
+            <span class="material-icons">build</span> Repair
+          </a>
+        </li>
+
+        <li>
+          <a href="upgrade.html">
+            <span class="material-icons">upgrade</span> Upgrade
+          </a>
+        </li>
+
+        <li>
+          <a href="report.html">
+            <span class="material-icons">bar_chart</span> Report
+          </a>
+        </li>
+      </ul>
+      <div class="user-details">
+        <a href="#" id="userToggle">
+          <span class="material-icons">account_circle</span>
+          John Doe
+        </a>
+        <div class="user-panel" id="userPanel">
+          <button><span class="material-icons">person</span> Profile</button>
+          <button>
+            <span class="material-icons">image</span> Change Image
+          </button>
+          <button><span class="material-icons">logout</span> Logout</button>
+        </div>
+      </div>
+    </nav>
+    <!--! ===== MAIN CONTENT AREA ===== -->
+    <main class="main-content">
+      <!-- ===== REUSABLE TABLE SECTION ===== -->
+      <section class="table-section">
+        <!--! Top Action Bar -->
+        <div class="table-actions">
+          <button class="btn filter-btn">
+            <span class="material-icons">filter_list</span> Filter
+          </button>
+          <button class="btn add-btn"  onclick="location.href='other page/addUser.html'">
+            <span class="material-icons">person_add</span> Add User
+          </button>
+          <button class="btn export-btn">
+            <span class="material-icons">file_download</span> Export
+          </button>
+        </div>
+
+        <!-- ===== COLUMN FILTER BAR ===== -->
+        <div class="column-filters" id="columnFilters" style="display: none">
+          <div class="filter-row">
+            <label for="filterRole">Role:</label>
+            <select id="filterRole" class="filter-select">
+              <option value="">All</option>
+              <option value="Admin">Admin</option>
+              <option value="Staff">Staff</option>
+              <option value="Teacher">Teacher</option>
+              <option value="Support">Support</option>
+            </select>
+
+            <label for="filterStatus">Status:</label>
+            <select id="filterStatus" class="filter-select">
+              <option value="">All</option>
+              <option value="Active" selected>Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+
+            <button class="btn reset-filter" id="resetColumnFilter">
+              <span class="material-icons">refresh</span> Reset Filters
+            </button>
+          </div>
+        </div>
+
+        <!--! Reusable Table -->
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="selectAll" /></th>
+                <th>User ID</th>
+                <th>Full Name</th>
+                <th>Designation</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Phone no</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Remarks</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U001</td>
+                <td>John Doe</td>
+                <td>Principal</td>
+                <td>Admin</td>
+                <td>john.doe@example.com</td>
+                <td>9876543210</td>
+                <td>Admin</td>
+                <td><span class="status active">Active</span></td>
+                <td>Excellent leadership</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U002</td>
+                <td>Jane Smith</td>
+                <td>Teacher</td>
+                <td>Teaching</td>
+                <td>jane.smith@example.com</td>
+                <td>9876543211</td>
+                <td>Teacher</td>
+                <td><span class="status inactive">Inactive</span></td>
+                <td>On maternity leave</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U003</td>
+                <td>Michael Brown</td>
+                <td>IT Executive</td>
+                <td>IT</td>
+                <td>michael.brown@example.com</td>
+                <td>9876543212</td>
+                <td>Staff</td>
+                <td><span class="status active">Active</span></td>
+                <td>Handles system maintenance</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U004</td>
+                <td>Emily Johnson</td>
+                <td>Accountant</td>
+                <td>Accounts</td>
+                <td>emily.johnson@example.com</td>
+                <td>9876543213</td>
+                <td>Staff</td>
+                <td><span class="status active">Active</span></td>
+                <td>Manages billing</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U005</td>
+                <td>Chris Green</td>
+                <td>Receptionist</td>
+                <td>School Office</td>
+                <td>chris.green@example.com</td>
+                <td>9876543214</td>
+                <td>Support</td>
+                <td><span class="status inactive">Inactive</span></td>
+                <td>Resigned recently</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U006</td>
+                <td>Laura White</td>
+                <td>Teacher</td>
+                <td>Teaching</td>
+                <td>laura.white@example.com</td>
+                <td>9876543215</td>
+                <td>Teacher</td>
+                <td><span class="status active">Active</span></td>
+                <td>Top performer</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U007</td>
+                <td>David Miller</td>
+                <td>Support Staff</td>
+                <td>Other</td>
+                <td>david.miller@example.com</td>
+                <td>9876543216</td>
+                <td>Support</td>
+                <td><span class="status inactive">Inactive</span></td>
+                <td>Transferred to another branch</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox" class="row-checkbox" /></td>
+                <td>U008</td>
+                <td>Susan Clark</td>
+                <td>Vice Principal</td>
+                <td>Admin</td>
+                <td>susan.clark@example.com</td>
+                <td>9876543217</td>
+                <td>Admin</td>
+                <td><span class="status active">Active</span></td>
+                <td>Supervises academic operations</td>
+                <td class="action-buttons">
+                  <button class="edit-btn" title="Edit">
+                    <span class="material-icons">edit</span>
+                  </button>
+                  <button class="delete-btn" title="Delete">
+                    <span class="material-icons">delete</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script src="../js/script.js"></script>
+     <script src="../js/table.js"></script>
+  </body>
+</html>
