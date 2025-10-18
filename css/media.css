@@ -114,25 +114,6 @@
     font-size: 1.35rem;
   }
 
-  /* ---------- Search Bar ---------- */
-  .search-container {
-    width: 12rem;
-  }
-
-  .search-container input {
-    font-size: 0.95rem;
-    padding: 0 0.5rem;
-  }
-
-  .search-icon-container button {
-    padding: 0.35rem 0.6rem;
-    border-radius: 0.4rem;
-  }
-
-  .search-icon-container img {
-    width: 0.85rem;
-    height: 0.85rem;
-  }
 
   /* ---------- Hamburger ---------- */
   .hamburger {
