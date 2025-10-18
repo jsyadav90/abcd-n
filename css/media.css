@@ -203,3 +203,32 @@
   }
 }
 
+
+
+
+/*!====================== For Profile page ===============================*/
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-photo img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .school-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-dashboard {
+    padding: 1rem;
+  }
+}
+/*? ------------------------- End Profile Page CSS ---------------------------------- */

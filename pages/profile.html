@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile | ABCD ERP</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/test.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-left">
+        <button class="hamburger" aria-label="Menu">&#9776;</button>
+        <div class="school-logo"><a href="../index.html">ABCD</a></div>
+      </div>
+      <div class="header-right">
+        <div class="search-container" id="searchBox" role="search">
+          <input
+            type="text"
+            placeholder="Search..."
+            aria-label="Search the application"
+          />
+          <div class="search-icon-container">
+            <button type="button" class="material-icons search-icon">
+              search
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="menu-bar">
+      <ul class="menu">
+        <li>
+          <a href="users.html"><span class="material-icons">person</span> User</a>
+        </li>
+        <li>
+          <a href="inventory.html"><span class="material-icons">inventory_2</span> Inventory</a>
+        </li>
+        <li>
+          <a href="repair.html"><span class="material-icons">build</span> Repair</a>
+        </li>
+        <li>
+          <a href="report.html"><span class="material-icons">bar_chart</span> Report</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Profile Content -->
+    <main class="main-content">
+       <section class="profile-header">
+        <div class="profile-photo">
+          <img src="../assets/img/user-placeholder.png" alt="User Photo" />
+        </div>
+        <div class="profile-summary">
+          <h1>John Doe</h1>
+          <p class="designation">System Administrator</p>
+          <div class="contact-info">
+            <p><span class="material-icons">mail</span> johndoe@example.com</p>
+            <p><span class="material-icons">phone</span> +91 9876543210</p>
+          </div>
+          <span class="status active">Active</span>
+        </div>
+      </section>
+
+      <!-- Account Info Section -->
+      <section class="profile-section">
+        <h2><span class="material-icons">account_circle</span> Account Details</h2>
+        <div class="section-content grid-3">
+          <div class="info-card">
+            <label>User ID</label>
+            <p>USR1024</p>
+          </div>
+          <div class="info-card">
+            <label>Role</label>
+            <p>Administrator</p>
+          </div>
+          <div class="info-card">
+            <label>Department</label>
+            <p>IT Department</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Personal Info Section -->
+      <section class="profile-section">
+        <h2><span class="material-icons">badge</span> Personal Information</h2>
+        <div class="section-content grid-2">
+          <div class="info-card">
+            <label>Date of Joining</label>
+            <p>12 March 2021</p>
+          </div>
+          <div class="info-card">
+            <label>Gender</label>
+            <p>Male</p>
+          </div>
+          <div class="info-card">
+            <label>Location</label>
+            <p>New Delhi, India</p>
+          </div>
+          <div class="info-card">
+            <label>Reporting To</label>
+            <p>Mr. Rahul Sharma (Director)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Login/Access Info -->
+      <section class="profile-section">
+        <h2><span class="material-icons">security</span> Access Information</h2>
+        <div class="section-content grid-2">
+          <div class="info-card">
+            <label>Last Login</label>
+            <p>18 Oct 2025, 09:45 AM</p>
+          </div>
+          <div class="info-card">
+            <label>Account Status</label>
+            <p class="status active">Active</p>
+          </div>
+          <div class="info-card">
+            <label>Access Level</label>
+            <p>Full Control</p>
+          </div>
+          <div class="info-card">
+            <label>2FA Enabled</label>
+            <p>No</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- School ERP Section -->
+      <section class="profile-section school-select">
+        <h2><span class="material-icons">school</span> School ERP Selection</h2>
+        <p>Select which school ERP you want to operate:</p>
+        <form id="schoolForm">
+          <div class="school-grid">
+            <label class="school-card">
+              <input type="radio" name="school" value="Greenfield High" checked />
+              <div class="school-inner">
+                <h3>Greenfield High</h3>
+                <p>Primary & Secondary Education</p>
+              </div>
+            </label>
+
+            <label class="school-card">
+              <input type="radio" name="school" value="Sunrise International" />
+              <div class="school-inner">
+                <h3>Sunrise International School</h3>
+                <p>CBSE Board</p>
+              </div>
+            </label>
+
+            <label class="school-card">
+              <input type="radio" name="school" value="Bluebell Academy" />
+              <div class="school-inner">
+                <h3>Bluebell Academy</h3>
+                <p>ICSE Board</p>
+              </div>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Apply School</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script>
+       // Save selected school
+      document.getElementById("schoolForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const selected = document.querySelector('input[name="school"]:checked').value;
+        localStorage.setItem("selectedSchool", selected);
+        document.getElementById("schoolTitle").innerText = `ABCD | ${selected}`;
+        alert(`Switched to ${selected} ERP`);
+      });
+
+      // Load selected school
+      const savedSchool = localStorage.getItem("selectedSchool");
+      if (savedSchool) {
+        document.querySelectorAll('input[name="school"]').forEach((r) => {
+          if (r.value === savedSchool) r.checked = true;
+        });
+        document.getElementById("schoolTitle").innerText = `ABCD | ${savedSchool}`;
+      }
+    </script>
+    </script>
+  </body>
+</html>
