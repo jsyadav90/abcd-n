@@ -25,43 +25,9 @@ const products = {
     { id: "S002", model: "Epson DS-530", type: "Sheet-fed", brand: "Epson", qty: 3 },
   ],
   camera: [
-  { id: "C001", model: "Canon EOS", brand: "Canon", type: "DSLR", lens: "24-70mm", qty: 5 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-  { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
-],
+    { id: "C001", model: "Canon EOS", brand: "Canon", type: "DSLR", lens: "24-70mm", qty: 5 },
+    { id: "C002", model: "Sony A7", brand: "Sony", type: "Mirrorless", lens: "28-70mm", qty: 8 },
+  ],
 };
 
 // === DOM Elements ===
@@ -79,9 +45,9 @@ async function loadAllHeaders() {
 
   try {
     const res = await fetch("../../pages/headerTemplates/headers.html");
-    if (!res.ok) throw new Error("Failed to load headers.html");
-    const text = await res.text();
+    if (!res.ok) throw new Error("Failed to fetch headers.html");
 
+    const text = await res.text();
     const div = document.createElement("div");
     div.innerHTML = text;
     div.style.display = "none";
@@ -89,7 +55,8 @@ async function loadAllHeaders() {
 
     headerTemplatesLoaded = true;
   } catch (err) {
-    console.error("Error loading headers:", err);
+    console.error("❌ Error loading headers:", err);
+    headerTemplatesLoaded = false;
   }
 }
 
@@ -97,19 +64,19 @@ async function loadAllHeaders() {
 async function getTableHeader(category) {
   await loadAllHeaders();
 
+  if (!headerTemplatesLoaded) {
+    // Return a clear message row if headers cannot be loaded
+    return `<tr><th colspan="10" style="color:red; text-align:center;">Unable to fetch headers.</th></tr>`;
+  }
+
   const template = document.getElementById(`header-${category}`);
   if (template) {
     return template.innerHTML;
   }
 
-  // If no matching header found → auto-generate based on object keys
-  const sampleData = products[category]?.[0];
-  if (!sampleData) return "<tr><th>No Data</th></tr>";
-
-  const keys = Object.keys(sampleData);
-  const headers = keys.map((k) => `<th>${k.toUpperCase()}</th>`).join("");
-  console.warn(`⚠️ Header template not found for '${category}', auto-generated instead.`);
-  return `<tr>${headers}<th>Actions</th></tr>`;
+  // If no template found for that category
+  console.warn(`⚠️ No header template found for '${category}'.`);
+  return `<tr><th colspan="10" style="color:red; text-align:center;">Unable to fetch headers.</th></tr>`;
 }
 
 // =============================
@@ -126,7 +93,7 @@ cards.forEach((card) => {
       c.classList.remove("active");
     });
 
-    // Highlight selected button (after morph)
+    // Highlight selected card
     card.classList.add("active");
 
     // Smooth horizontal scroll if overflow
@@ -148,6 +115,27 @@ async function showTable(category) {
   const headerHTML = await getTableHeader(category);
   const data = products[category] || [];
 
+  // If headers couldn’t be fetched, still show error table message
+  if (headerHTML.includes("Unable to fetch headers")) {
+    detailsSection.innerHTML = `
+      <div class="table-actions">
+        <button class="btn back-btn" id="backToCards">
+          <span class="material-icons">arrow_back</span> Back
+        </button>
+      </div>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>${headerHTML}</thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    `;
+    detailsSection.classList.remove("hidden");
+    document.getElementById("backToCards").addEventListener("click", goBack);
+    return;
+  }
+
+  // Normal table rendering
   const rows = data
     .map(
       (item) => `
@@ -164,7 +152,6 @@ async function showTable(category) {
     )
     .join("");
 
-  // === Inject Table + Actions ===
   detailsSection.innerHTML = `
     <div class="table-actions">
       <button class="btn back-btn" id="backToCards">
@@ -187,11 +174,16 @@ async function showTable(category) {
   `;
 
   detailsSection.classList.remove("hidden");
+  document.getElementById("backToCards").addEventListener("click", goBack);
+}
 
-  // === Back Button Logic ===
-  document.getElementById("backToCards").addEventListener("click", () => {
-    detailsSection.classList.add("hidden");
-    cardContainer.classList.remove("morphing");
-    cards.forEach((c) => c.classList.remove("morph", "active"));
-  });
+// =============================
+// Back Button Function
+// =============================
+function goBack() {
+  detailsSection.classList.add("hidden");
+  cardContainer.classList.remove("morphing");
+  document.querySelectorAll(".inventory-card").forEach((c) =>
+    c.classList.remove("morph", "active")
+  );
 }
