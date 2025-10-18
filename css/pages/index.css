@@ -363,6 +363,21 @@
    7. RESPONSIVE DESIGN (Real-World Breakpoints)
    ========================================================== */
 
+   
+
+/*! ===== LARGE SCREENS (≤ 1280px) ===== */
+@media (max-width: 1280px) {
+  .panel-left,.panel-right,
+  .sync-panel {
+    width: 100%;
+    justify-content: center;
+  }
+
+}
+
+
+
+
 /*! ===== LARGE SCREENS (≤ 1200px) ===== */
 @media (max-width: 1200px) {
   .inventory-dashboard {
@@ -506,7 +521,8 @@
   }
 
   .sync-panel {
-    gap: 1rem;
+           gap: 5px;
+        padding-bottom: 10px;
   }
 
   .btn-apply,
@@ -514,52 +530,3 @@
     width: 100%;
   }
 }
-
-
-/* 
-@media (max-width: 992px) {
-  .school-panel {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 1rem;
-  }
-
-  .panel-left {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .profile-details {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .school-settings {
-    flex-direction: row;
-    width: 100%;
-  }
-
-  
-
-  .panel-right {
-    text-align: left;
-    border-top: 1px solid #eee;
-    padding-top: 1rem;
-  }
-
-  .sync-panel {
-    border-left: none;
-    padding-left: 0;
-    flex-wrap: wrap;
-  }
-
-  .summary-section {
-    gap: 0.75rem;
-    padding: 0.75rem;
-  }
-
-  .overview-grid {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-} */
