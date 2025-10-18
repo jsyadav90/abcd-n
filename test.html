@@ -135,10 +135,20 @@
       <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
       <div class="details"><h2>6</h2><p>Faulty Items</p></div>
     </div>
+    
   </section>
 
+  
   <!-- ===== School Switch Section ===== -->
-  <section class="school-section">
+<section class="school-section">
+  <!-- LEFT SIDE -->
+  <div class="school-left">
+
+      <div class="user-info">
+      <h3>User</h3>
+      <p id="userName">John Doe</p>
+    </div>
+    
     <div class="school-info">
       <h3>School Branch</h3>
       <select id="schoolSelect">
@@ -156,8 +166,29 @@
       </select>
     </div>
 
+  
+
     <button id="applySchool">Apply</button>
-  </section>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="school-right">
+    <section class="footer-info">
+      <div>
+        <p>Next Auto Sync in: <span id="syncCountdown">59s</span></p>
+        <p>Last Synced: <strong>18-Oct-2025 12:45 PM</strong></p>
+
+      </div>
+      <div>
+        <button id="syncNow">
+          <i class="fas fa-sync-alt"></i> Sync Now
+        </button>
+
+      </div>
+    </section>
+  </div>
+</section>
+
 
   <!-- ===== Quick Actions ===== -->
   <section class="actions-section">
@@ -205,11 +236,8 @@
     </div>
   </section>
 
-  <!-- ===== Footer Section ===== -->
-  <section class="footer-info">
-    <p>Last Synced: <strong>18-Oct-2025 12:45 PM</strong></p>
-    <p>Next Auto Sync in: <span id="syncCountdown">59s</span></p>
-  </section>
+
+  
 
 </div>
 
@@ -275,46 +303,87 @@
 
     <script src="js/script.js"></script>
     <script>
-     // School apply
-document.getElementById("applySchool").addEventListener("click", () => {
-  const school = document.getElementById("schoolSelect").value;
-  const year = document.getElementById("academicYear").value;
-  alert(`Switched to ${school} (${year}) Inventory ERP`);
-});
+  // Auto horizontal scroll for summary-section
+const summarySection = document.querySelector('.summary-section');
+let scrollDirection = 1; // 1 = right, -1 = left
+let scrollSpeed = 1.2; // pixels per tick
+let scrollInterval;
 
-// Countdown Timer
-let timeLeft = 59;
-const countdown = document.getElementById("syncCountdown");
+// Auto-scroll function
+function startSummaryScroll() {
+  scrollInterval = setInterval(() => {
+    if (!summarySection) return;
+
+    summarySection.scrollLeft += scrollSpeed * scrollDirection;
+
+    // When reaching right edge → reverse direction
+    if (summarySection.scrollLeft + summarySection.clientWidth >= summarySection.scrollWidth) {
+      scrollDirection = -1;
+    }
+    // When reaching left edge → reverse direction
+    else if (summarySection.scrollLeft <= 0) {
+      scrollDirection = 1;
+    }
+  }, 15); // lower = smoother
+}
+
+// Stop scrolling when user hovers
+function stopSummaryScroll() {
+  clearInterval(scrollInterval);
+}
+
+// Start automatically
+startSummaryScroll();
+
+// Pause on hover
+summarySection.addEventListener('mouseenter', stopSummaryScroll);
+summarySection.addEventListener('mouseleave', startSummaryScroll);
+
+//! Sync countdown logic
+// Sync countdown logic
+let countdown = 59;
+const syncCountdown = document.getElementById("syncCountdown");
+const syncNowBtn = document.getElementById("syncNow");
+const lastSync = document.getElementById("lastSync");
+
+function updateSyncTime() {
+  const now = new Date();
+  const formatted = now.toLocaleString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  lastSync.innerHTML = formatted.replace(",", "");
+}
+
+// Auto countdown
 setInterval(() => {
-  countdown.textContent = `${timeLeft--}s`;
-  if (timeLeft < 0) timeLeft = 59;
+  if (!syncCountdown) return;
+  countdown--;
+  if (countdown <= 0) {
+    countdown = 59;
+    updateSyncTime();
+    console.log("Auto Sync Triggered");
+  }
+  syncCountdown.textContent = countdown + "s";
 }, 1000);
 
-// Simple Chart.js asset chart
-const ctx = document.getElementById("assetChart");
-new Chart(ctx, {
-  type: "doughnut",
-  data: {
-    labels: ["Available", "Assigned", "Faulty"],
-    datasets: [{
-      data: [180, 54, 6],
-      backgroundColor: ["#28a745", "#007bff", "#dc3545"]
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: { legend: { position: "bottom" } }
-  }
+// Manual Sync Now button
+syncNowBtn.addEventListener("click", () => {
+  countdown = 59;
+  updateSyncTime();
+  syncNowBtn.innerHTML = '<i class="fas fa-check-circle"></i> Synced!';
+  syncNowBtn.style.background = "#17a2b8";
+
+  setTimeout(() => {
+    syncNowBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Sync Now';
+    syncNowBtn.style.background = "#28a745";
+  }, 1500);
 });
 
-// Refresh alert data simulation
-setInterval(() => {
-  const alertRows = document.querySelectorAll(".alerts-table tbody tr");
-  alertRows.forEach(row => row.classList.add("flash"));
-  setTimeout(() => {
-    alertRows.forEach(row => row.classList.remove("flash"));
-  }, 1000);
-}, 15000);
+
 
 
     </script>

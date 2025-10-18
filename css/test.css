@@ -7,55 +7,187 @@
   background: #f5f6fa;
 }
 
-/* ===== Summary Cards ===== */
 .summary-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
   gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 1rem;
 }
+
+.summary-section::-webkit-scrollbar {
+  display: none;
+}
+
 .summary-card {
+  min-width: 200px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1.2rem 1.5rem;
-  border-radius: 12px;
-  color: #fff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  gap: 0.75rem;
+  transition: transform 0.3s ease;
 }
-.summary-card .icon { font-size: 2.2rem; opacity: 0.9; }
-.summary-card.blue { background: #007bff; }
-.summary-card.green { background: #28a745; }
-.summary-card.yellow { background: #ffc107; color: #333; }
-.summary-card.red { background: #dc3545; }
-.summary-card .details h2 { margin: 0; font-size: 1.8rem; }
+
+.summary-card:hover {
+  transform: translateY(-4px);
+}
+
 
 /* ===== School Section ===== */
+/* ================================
+   SCHOOL SECTION (Dashboard)
+   ================================ */
 .school-section {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
   background: #fff;
-  padding: 1rem 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+  gap: 1rem;
 }
-.school-section h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
-.school-section select {
-  padding: 0.5rem;
-  border-radius: 6px;
+
+/* Left panel */
+.school-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.school-info,
+.academic-info,
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.school-info h3,
+.academic-info h3,
+.user-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.school-info select,
+.academic-info select {
+  padding: 0.5rem 0.75rem;
   border: 1px solid #ccc;
-  width: 250px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: border 0.3s ease;
 }
-.school-section button {
-  padding: 0.6rem 1.5rem;
+.school-info select:focus,
+.academic-info select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.user-info p {
+  margin: 0;
+  font-weight: 600;
+  color: #007bff;
+}
+
+#applySchool {
+  padding: 0.6rem 1.2rem;
   background: #007bff;
-  color: #fff;
   border: none;
   border-radius: 6px;
+  color: #fff;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
-.school-section button:hover { background: #0056b3; }
+#applySchool:hover {
+  background: #0056b3;
+}
+
+/* Right panel (Sync Info) */
+.school-right {
+  text-align: right;
+  /* flex: 1; */
+}
+
+.footer-info {
+  display: flex;
+  gap: 2rem;
+  border-left: 2px solid #eaeaea;
+  padding-left: 1rem;
+}
+
+.footer-info p {
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .school-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .school-right {
+    text-align: left;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+  }
+  .footer-info {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+#syncNow {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #28a745;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+#syncNow:hover {
+  background: #218838;
+}
+#syncNow:active {
+  transform: scale(0.96);
+}
+#syncNow i {
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .school-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .school-right {
+    text-align: left;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+  }
+  .footer-info {
+    border-left: none;
+    padding-left: 0;
+  }
+}
 
 /* ===== Quick Actions ===== */
 .actions-section {
@@ -224,3 +356,5 @@
 .flash {
   animation: flash 1s ease-in-out;
 }
+
+
