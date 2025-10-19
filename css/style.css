@@ -554,6 +554,7 @@ header {
 .profile-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   background: #fff;
   padding: 1.5rem 2rem;
   border-radius: 12px;

@@ -39,18 +39,76 @@
     <nav class="menu-bar">
       <ul class="menu">
         <li>
-          <a href="users.html"><span class="material-icons">person</span> User</a>
+          <a href="users.html">
+            <span class="material-icons">person</span> User
+          </a>
+        </li>
+
+        <li class="dropdown has-submenu">
+          <a> <span class="material-icons">inventory_2</span> Inventory </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="inventory.html"
+                ><span class="material-icons">inventory</span> Inventory</a
+              >
+            </li>
+            <li>
+              <a href="accessory.html"
+                ><span class="material-icons">headphones</span> Accessories</a
+              >
+            </li>
+            <li>
+              <a href="peripheral.html"
+                ><span class="material-icons">keyboard</span> Peripherals</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="issueItem.html">
+            <span class="material-icons">assignment_ind</span> Issue To
+          </a>
+        </li>
+
+        <li>
+          <a href="repair.html">
+            <span class="material-icons">build</span> Repair
+          </a>
+        </li>
+
+        <li>
+          <a href="upgrade.html">
+            <span class="material-icons">upgrade</span> Upgrade
+          </a>
+        </li>
+
+        <li>
+          <a href="report.html">
+            <span class="material-icons">bar_chart</span> Report
+          </a>
         </li>
         <li>
-          <a href="inventory.html"><span class="material-icons">inventory_2</span> Inventory</a>
-        </li>
-        <li>
-          <a href="repair.html"><span class="material-icons">build</span> Repair</a>
-        </li>
-        <li>
-          <a href="report.html"><span class="material-icons">bar_chart</span> Report</a>
+          <a href="test.html">
+            <span class="material-icons">bar_chart</span> Test Page
+          </a>
         </li>
       </ul>
+      <div class="user-details">
+        <a href="#" id="userToggle">
+          <span class="material-icons">account_circle</span>
+          John Doe
+        </a>
+        <div class="user-panel" id="userPanel">
+          <button onclick="location.href='profile.html'">
+            <span class="material-icons">person</span> Profile
+          </button>
+          <button>
+            <span class="material-icons">image</span> Change Image
+          </button>
+          <button><span class="material-icons">logout</span> Logout</button>
+        </div>
+      </div>
     </nav>
 
     <!-- Main Profile Content -->
