@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABCD | Accessory Details</title>
+
+    <!-- External Styles -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/table.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- ===== HEADER ===== -->
+    <header>
+      <div class="header-left">
+        <button class="hamburger">&#9776;</button>
+        <div class="school-logo"><a href="../../index.html">ABCD</a></div>
+      </div>
+      <div class="header-right">
+        <div class="search-container">
+          <input type="text" placeholder="Search accessories..." />
+          <span class="material-icons search-icon">search</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="menu-bar">
+      <ul class="menu">
+        <li>
+          <a href="users.html"
+            ><span class="material-icons">person</span> User</a
+          >
+        </li>
+        <li class="dropdown has-submenu">
+          <a><span class="material-icons">inventory_2</span> Inventory</a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="inventory.html"
+                ><span class="material-icons">inventory</span> Inventory</a
+              >
+            </li>
+            <li>
+              <a href="accessory.html"
+                ><span class="material-icons">headphones</span> Accessories</a
+              >
+            </li>
+            <li>
+              <a href="peripheral.html"
+                ><span class="material-icons">keyboard</span> Peripherals</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="issueItem.html"
+            ><span class="material-icons">assignment_ind</span> Issue To</a
+          >
+        </li>
+        <li>
+          <a href="repair.html"
+            ><span class="material-icons">build</span> Repair</a
+          >
+        </li>
+        <li>
+          <a href="upgrade.html"
+            ><span class="material-icons">upgrade</span> Upgrade</a
+          >
+        </li>
+        <li>
+          <a href="report.html"
+            ><span class="material-icons">bar_chart</span> Report</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+      <section class="table-section">
+        <!-- ===== Page Title & Actions ===== -->
+        <div class="table-header">
+          <h2 id="categoryTitle" class="page-title">Accessory Details</h2>
+          <div class="table-actions">
+            <button id="backBtn" class="btn back-btn">
+              <span class="material-icons">arrow_back</span> Back
+            </button>
+            <button id="addItemBtn" class="btn add-btn">
+              <span class="material-icons">add</span> Add Item
+            </button>
+          </div>
+        </div>
+
+        <!-- ===== Table Container ===== -->
+        <div class="table-container">
+          <table class="data-table">
+            <thead id="tableHeader">
+              <tr>
+                <th>Loading headers...</th>
+              </tr>
+            </thead>
+            <tbody id="itemTableBody">
+              <tr>
+                <td colspan="10">Fetching data...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== Add Item Modal ===== -->
+    <div id="addItemModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" id="closeItemModal">&times;</span>
+        <h3>Add New Accessory</h3>
+        <form id="addItemForm">
+          <div class="form-group">
+            <label for="itemCode">Item Code:</label>
+            <input type="text" id="itemCode" required />
+          </div>
+          <div class="form-group">
+            <label for="itemName">Item Name:</label>
+            <input type="text" id="itemName" required />
+          </div>
+          <div class="form-group">
+            <label for="itemSpec">Specification:</label>
+            <input type="text" id="itemSpec" required />
+          </div>
+          <button type="submit" class="btn submit-btn">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===== JS FILES ===== -->
+    <script src="../js/headerFetch.js"></script>
+    <script src="../js/script.js"></script>
+
+  </body>
+</html>

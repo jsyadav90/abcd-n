@@ -1,0 +1,14 @@
+{
+  "Camera": {
+    "headers": ["ID", "Model", "Brand", "Type", "Lens", "Quantity", "Actions"]
+  },
+  "Headphones": {
+    "headers": ["ID", "Model", "Brand", "Type", "Connectivity", "Quantity", "Actions"]
+  },
+  "Docking Station": {
+    "headers": ["ID", "Model", "Ports", "Brand", "Power", "Quantity", "Actions"]
+  },
+  "External Hard Drive": {
+    "headers": ["ID", "Model", "Brand", "Capacity", "Interface", "Quantity", "Actions"]
+  }
+}

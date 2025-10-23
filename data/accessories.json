@@ -1,0 +1,38 @@
+{
+  "camera": [
+    {
+      "code": "C001",
+      "name": "Canon HD Camera",
+      "spec": "1080p, 60fps",
+      "status": "Available",
+      "assigned": "-",
+      "date": "2023-01-12"
+    },
+    {
+      "code": "C002",
+      "name": "Logitech Webcam",
+      "spec": "720p, USB",
+      "status": "Issued",
+      "assigned": "Ravi Singh",
+      "date": "2022-10-09"
+    }
+  ],
+  "headphones": [
+    {
+      "code": "H001",
+      "name": "JBL Headset",
+      "spec": "Wireless",
+      "status": "Available",
+      "assigned": "-",
+      "date": "2023-03-14"
+    },
+    {
+      "code": "H002",
+      "name": "Sony WH-CH510",
+      "spec": "Bluetooth 5.0",
+      "status": "Issued",
+      "assigned": "Ankit Mehta",
+      "date": "2023-04-25"
+    }
+  ]
+}

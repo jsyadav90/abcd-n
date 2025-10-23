@@ -3,24 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accessories - ABCD</title>
+    <title>ABCD</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/media.css" />
+    <link rel="stylesheet" href="../css/pages/accessory.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
   </head>
   <body>
-    <!--! Header -->
+    <!-- Header -->
     <header>
-      <!--todo header left  -->
       <div class="header-left">
         <button class="hamburger" aria-label="Menu">&#9776;</button>
-        <div class="school-logo"><a href="../../index.html">ABCD</a></div>
+        <div class="school-logo"><a href="index.html">ABCD</a></div>
       </div>
-
-      <!--todo header right start  -->
       <div class="header-right">
         <div class="search-container" id="searchBox" role="search">
           <input
@@ -36,33 +34,36 @@
             >
               search
             </button>
+          </div>
         </div>
         <span class="search-icon">&#128269;</span>
       </div>
     </header>
 
-    <!--! Navigation Bar -->
+    <!-- Navigation Bar -->
     <nav class="menu-bar">
       <ul class="menu">
         <li>
-          <a href="users.html"> <span class="material-icons">person</span> User </a>
+          <a href="pages/users.html">
+            <span class="material-icons">person</span> User
+          </a>
         </li>
 
         <li class="dropdown has-submenu">
           <a> <span class="material-icons">inventory_2</span> Inventory </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="inventory.html"
+              <a href="pages/inventory.html"
                 ><span class="material-icons">inventory</span> Inventory</a
               >
             </li>
             <li>
-              <a href="accessory.html"
+              <a href="pages/accessory.html"
                 ><span class="material-icons">headphones</span> Accessories</a
               >
             </li>
             <li>
-              <a href="peripheral.html"
+              <a href="pages/peripheral.html"
                 ><span class="material-icons">keyboard</span> Peripherals</a
               >
             </li>
@@ -70,21 +71,32 @@
         </li>
 
         <li>
-          <a href="issueItem.html">
+          <a href="pages/issueItem.html">
             <span class="material-icons">assignment_ind</span> Issue To
           </a>
         </li>
 
         <li>
-          <a href="repair.html"> <span class="material-icons">build</span> Repair </a>
+          <a href="pages/repair.html">
+            <span class="material-icons">build</span> Repair
+          </a>
         </li>
 
         <li>
-          <a href="upgrade.html"> <span class="material-icons">upgrade</span> Upgrade </a>
+          <a href="pages/upgrade.html">
+            <span class="material-icons">upgrade</span> Upgrade
+          </a>
         </li>
 
         <li>
-          <a href="report.html"> <span class="material-icons">bar_chart</span> Report </a>
+          <a href="pages/report.html">
+            <span class="material-icons">bar_chart</span> Report
+          </a>
+        </li>
+        <li>
+          <a href="test.html">
+            <span class="material-icons">bar_chart</span> Test Page
+          </a>
         </li>
       </ul>
       <div class="user-details">
@@ -93,7 +105,9 @@
           John Doe
         </a>
         <div class="user-panel" id="userPanel">
-          <button><span class="material-icons">person</span> Profile</button>
+          <button onclick="location.href='pages/profile.html'">
+            <span class="material-icons">person</span> Profile
+          </button>
           <button>
             <span class="material-icons">image</span> Change Image
           </button>
@@ -102,8 +116,163 @@
       </div>
     </nav>
     <!--! ===== MAIN CONTENT AREA ===== -->
-    <main class="main-content"></main>
+    <main class="main-content">
+<!-- ===================================
+     ACCESSORY INVENTORY DASHBOARD
+=================================== -->
+  <section class="accessory-dashboard">
+  <div class="accessory-header">
+    <h2>Accessory Management</h2>
+    <button class="add-category-btn" id="addCategoryBtn">
+      <span class="material-icons">add</span> Add Category
+    </button>
+  </div>
+
+  <!-- Category Grid -->
+  <div class="accessory-grid" id="accessoryGrid">
+    <!-- Cards dynamically loaded here -->
+  </div>
+</section>
+
+<!-- Add Category Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Add Accessory Category</h3>
+      <button class="close-modal" id="closeModal">&times;</button>
+    </div>
+    <form id="addCategoryForm" class="modal-form">
+      <div class="form-group">
+        <label>Category Image</label>
+        <input type="file" id="categoryImage" accept="image/*" />
+      </div>
+      <div class="form-group">
+        <label>Category Name</label>
+        <input
+          type="text"
+          id="categoryName"
+          placeholder="Enter category name"
+          required
+        />
+      </div>
+      <button type="submit" class="submit-btn">Add Category</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+    </main>
 
     <script src="../js/script.js"></script>
+  <script>
+  // Accessory Data
+  const accessories = [
+    {
+      id: 1,
+      name: "Camera",
+      icon: "photo_camera",
+      total: 30,
+      available: 20,
+      issued: 8,
+      repair: 2,
+    },
+    {
+      id: 2,
+      name: "Headphones",
+      icon: "headphones",
+      total: 25,
+      available: 15,
+      issued: 8,
+      repair: 2,
+    },
+    {
+      id: 3,
+      name: "Docking Station",
+      icon: "usb",
+      total: 18,
+      available: 10,
+      issued: 6,
+      repair: 2,
+    },
+    {
+      id: 4,
+      name: "External Hard Drive",
+      icon: "storage",
+      total: 40,
+      available: 32,
+      issued: 6,
+      repair: 2,
+    },
+  ];
+
+  const grid = document.getElementById("accessoryGrid");
+
+  function loadAccessories() {
+    grid.innerHTML = "";
+    accessories.forEach((a) => {
+      const card = document.createElement("div");
+      card.classList.add("accessory-card");
+      card.innerHTML = `
+        <div class="left">
+          <span class="material-icons icon">${a.icon}</span>
+          <div>
+            <div class="name">${a.name}</div>
+            <div class="total">Total: ${a.total}</div>
+          </div>
+        </div>
+        <div class="right">
+          <span>Available: <strong>${a.available}</strong></span>
+          <span>Issued: <strong>${a.issued}</strong></span>
+          <span>Repair: <strong>${a.repair}</strong></span>
+        </div>
+      `;
+      card.addEventListener("click", () => openAccessoryDetail(a.name));
+      grid.appendChild(card);
+    });
+  }
+
+  function openAccessoryDetail(name) {
+    window.location.href = `accessoryDetails.html?category=${encodeURIComponent(
+      name
+    )}`;
+  }
+
+  // ===== Modal Logic =====
+  const modal = document.getElementById("modalOverlay");
+  const addBtn = document.getElementById("addCategoryBtn");
+  const closeBtn = document.getElementById("closeModal");
+  const form = document.getElementById("addCategoryForm");
+
+  addBtn.addEventListener("click", () => (modal.style.display = "flex"));
+  closeBtn.addEventListener("click", () => (modal.style.display = "none"));
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("categoryName").value.trim();
+    if (!name) return alert("Please enter category name");
+    accessories.push({
+      id: Date.now(),
+      name,
+      icon: "inventory_2",
+      total: 0,
+      available: 0,
+      issued: 0,
+      repair: 0,
+    });
+    loadAccessories();
+    modal.style.display = "none";
+    form.reset();
+  });
+
+  loadAccessories();
+</script>
+
+
+   
   </body>
 </html>

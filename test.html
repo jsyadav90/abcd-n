@@ -117,315 +117,162 @@
     </nav>
     <!--! ===== MAIN CONTENT AREA ===== -->
     <main class="main-content">
-      <div class="inventory-dashboard">
-        <!-- ===== Top Summary Cards ===== -->
-        <section class="summary-section">
-          <div class="summary-card blue">
-            <div class="icon"><i class="fas fa-laptop"></i></div>
-            <div class="details">
-              <h2>240</h2>
-              <p>Total IT Assets</p>
-            </div>
-          </div>
-          <div class="summary-card green">
-            <div class="icon"><i class="fas fa-network-wired"></i></div>
-            <div class="details">
-              <h2>68</h2>
-              <p>Networking Devices</p>
-            </div>
-          </div>
-          <div class="summary-card yellow">
-            <div class="icon"><i class="fas fa-desktop"></i></div>
-            <div class="details">
-              <h2>110</h2>
-              <p>Computers</p>
-            </div>
-          </div>
-          <div class="summary-card red">
-            <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
-            <div class="details">
-              <h2>6</h2>
-              <p>Faulty Items</p>
-            </div>
-          </div>
-        </section>
-
-        <!--! ===== School Switch Section ===== -->
-       <section class="school-panel">
-  <!-- LEFT SECTION -->
-  <div class="panel-left">
-
-    <!-- User Profile -->
-    <div class="profile-card">
-      <!-- <h3>Logged in User</h3> -->
-      <div class="profile-details">
-        <img src="assets/images/user-avatar.png" alt="User" class="profile-avatar" />
-        <div class="profile-meta">
-          <h4 id="userName">John Doe</h4>
-          <p class="profile-role">System Administrator</p>
-          <p class="profile-email">john.doe@bluebells.edu.in</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- School Selection -->
-    <div class="school-settings">
-      <div class="branch-selector">
-        <h3>School Branch</h3>
-        <select id="schoolSelect">
-          <option value="gurugram">Gurugram [The Blue Bells School]</option>
-          <option value="noida">Noida [Sunrise International]</option>
-          <option value="delhi">Delhi [Greenfield Public]</option>
-        </select>
-      </div>
-
-      <div class="academic-controls">
-        <div class="year-selector">
-          <h3>Academic Year</h3>
-          <select id="academicYear">
-            <option>2025-2026</option>
-            <option>2024-2025</option>
-          </select>
-        </div>
-
-        <button id="applySchool" class="btn-apply">Apply</button>
-      </div>
-    </div>
+<!-- ===================================
+     ACCESSORY INVENTORY DASHBOARD
+=================================== -->
+  <section class="accessory-dashboard">
+  <div class="accessory-header">
+    <h2>Accessory Management</h2>
+    <button class="add-category-btn" id="addCategoryBtn">
+      <span class="material-icons">add</span> Add Category
+    </button>
   </div>
 
-  <!-- RIGHT SECTION -->
-  <div class="panel-right">
-    <section class="sync-panel">
-      <div class="sync-status">
-        <p>Next Auto Sync in: <span id="syncCountdown">59s</span></p>
-        <p>Last Synced: <strong>18-Oct-2025 12:45 PM</strong></p>
-      </div>
-      <div class="sync-actions">
-        <button id="syncNow" class="btn-sync">
-          <i class="fas fa-sync-alt"></i> Sync Now
-        </button>
-      </div>
-    </section>
+  <!-- Category Grid -->
+  <div class="accessory-grid" id="accessoryGrid">
+    <!-- Cards dynamically loaded here -->
   </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- ===== Quick Actions ===== -->
-        <section class="actions-section">
-          <button class="action-btn primary">
-            <i class="fas fa-plus-circle"></i> Add Item
-          </button>
-          <button class="action-btn">
-            <i class="fas fa-chart-pie"></i> View Reports
-          </button>
-          <button class="action-btn">
-            <i class="fas fa-file-export"></i> Export CSV
-          </button>
-        </section>
-
-        <!-- ===== Overview + Chart Row ===== -->
-        <section class="overview-grid">
-          <div class="overview-card">
-            <h3>Recently Added Items</h3>
-            <ul>
-              <li>
-                <span>HP Laptop</span
-                ><span class="status available">Available</span>
-              </li>
-              <li>
-                <span>Dell Monitor</span
-                ><span class="status assigned">Assigned</span>
-              </li>
-              <li>
-                <span>Cisco Switch</span
-                ><span class="status faulty">Faulty</span>
-              </li>
-            </ul>
-            <a href="#">View All</a>
-          </div>
-
-          <div class="overview-card">
-            <h3>Vendor Summary</h3>
-            <ul>
-              <li><span>HP India</span><span>42 Items</span></li>
-              <li><span>Lenovo</span><span>31 Items</span></li>
-              <li><span>Cisco</span><span>15 Devices</span></li>
-            </ul>
-            <a href="#">Manage Vendors</a>
-          </div>
-
-          <div class="overview-card">
-            <h3>Maintenance Schedule</h3>
-            <ul>
-              <li><span>Printer Room</span><span>20 Oct</span></li>
-              <li><span>Server Rack</span><span>25 Oct</span></li>
-              <li><span>Lab 2 PCs</span><span>28 Oct</span></li>
-            </ul>
-            <a href="#">View Calendar</a>
-          </div>
-
-          <!-- Chart -->
-          <div class="overview-card chart-card">
-            <h3>Asset Status Overview</h3>
-            <canvas id="assetChart"></canvas>
-          </div>
-        </section>
+<!-- Add Category Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>Add Accessory Category</h3>
+      <button class="close-modal" id="closeModal">&times;</button>
+    </div>
+    <form id="addCategoryForm" class="modal-form">
+      <div class="form-group">
+        <label>Category Image</label>
+        <input type="file" id="categoryImage" accept="image/*" />
       </div>
+      <div class="form-group">
+        <label>Category Name</label>
+        <input
+          type="text"
+          id="categoryName"
+          placeholder="Enter category name"
+          required
+        />
+      </div>
+      <button type="submit" class="submit-btn">Add Category</button>
+    </form>
+  </div>
+</div>
 
-      <!-- ===== Alerts & Warnings Section ===== -->
-      <section class="alerts-section">
-        <h3><i class="fas fa-bell"></i> Alerts & Warnings</h3>
 
-        <div class="alerts-table-container">
-          <table class="alerts-table">
-            <thead>
-              <tr>
-                <th>Item Name</th>
-                <th>Category</th>
-                <th>Issue</th>
-                <th>Reported On</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>HP LaserJet Pro 4200</td>
-                <td>Printer</td>
-                <td><span class="tag warning">Low Ink Level</span></td>
-                <td>16-Oct-2025</td>
-                <td><span class="status pending">Pending</span></td>
-              </tr>
-              <tr>
-                <td>Dell OptiPlex 3080</td>
-                <td>Desktop</td>
-                <td><span class="tag danger">Warranty Expiring Soon</span></td>
-                <td>15-Oct-2025</td>
-                <td><span class="status active">In Process</span></td>
-              </tr>
-              <tr>
-                <td>Cisco Switch 2960</td>
-                <td>Networking</td>
-                <td><span class="tag critical">Device Down</span></td>
-                <td>18-Oct-2025</td>
-                <td><span class="status critical">Critical</span></td>
-              </tr>
-              <tr>
-                <td>HP EliteBook 850</td>
-                <td>Laptop</td>
-                <td><span class="tag info">Battery Health Moderate</span></td>
-                <td>17-Oct-2025</td>
-                <td><span class="status resolved">Resolved</span></td>
-              </tr>
-              <tr>
-                <td>Projector EPSON X500</td>
-                <td>Peripheral</td>
-                <td><span class="tag danger">Lamp Replacement Due</span></td>
-                <td>14-Oct-2025</td>
-                <td><span class="status pending">Pending</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+
+
     </main>
 
     <script src="js/script.js"></script>
-    <script>
-      // Auto horizontal scroll for summary-section
-      const summarySection = document.querySelector(".summary-section");
-      let scrollDirection = 1; // 1 = right, -1 = left
-      let scrollSpeed = 1.2; // pixels per tick
-      let scrollInterval;
+  <script>
+  // Accessory Data
+  const accessories = [
+    {
+      id: 1,
+      name: "Camera",
+      icon: "photo_camera",
+      total: 30,
+      available: 20,
+      issued: 8,
+      repair: 2,
+    },
+    {
+      id: 2,
+      name: "Headphones",
+      icon: "headphones",
+      total: 25,
+      available: 15,
+      issued: 8,
+      repair: 2,
+    },
+    {
+      id: 3,
+      name: "Docking Station",
+      icon: "usb",
+      total: 18,
+      available: 10,
+      issued: 6,
+      repair: 2,
+    },
+    {
+      id: 4,
+      name: "External Hard Drive",
+      icon: "storage",
+      total: 40,
+      available: 32,
+      issued: 6,
+      repair: 2,
+    },
+  ];
 
-      // Auto-scroll function
-      function startSummaryScroll() {
-        scrollInterval = setInterval(() => {
-          if (!summarySection) return;
+  const grid = document.getElementById("accessoryGrid");
 
-          summarySection.scrollLeft += scrollSpeed * scrollDirection;
+  function loadAccessories() {
+    grid.innerHTML = "";
+    accessories.forEach((a) => {
+      const card = document.createElement("div");
+      card.classList.add("accessory-card");
+      card.innerHTML = `
+        <div class="left">
+          <span class="material-icons icon">${a.icon}</span>
+          <div>
+            <div class="name">${a.name}</div>
+            <div class="total">Total: ${a.total}</div>
+          </div>
+        </div>
+        <div class="right">
+          <span>Available: <strong>${a.available}</strong></span>
+          <span>Issued: <strong>${a.issued}</strong></span>
+          <span>Repair: <strong>${a.repair}</strong></span>
+        </div>
+      `;
+      card.addEventListener("click", () => openAccessoryDetail(a.name));
+      grid.appendChild(card);
+    });
+  }
 
-          // When reaching right edge → reverse direction
-          if (
-            summarySection.scrollLeft + summarySection.clientWidth >=
-            summarySection.scrollWidth
-          ) {
-            scrollDirection = -1;
-          }
-          // When reaching left edge → reverse direction
-          else if (summarySection.scrollLeft <= 0) {
-            scrollDirection = 1;
-          }
-        }, 15); // lower = smoother
-      }
+  function openAccessoryDetail(name) {
+    window.location.href = `pages/accessoryDetails.html?category=${encodeURIComponent(
+      name
+    )}`;
+  }
 
-      // Stop scrolling when user hovers
-      function stopSummaryScroll() {
-        clearInterval(scrollInterval);
-      }
+  // ===== Modal Logic =====
+  const modal = document.getElementById("modalOverlay");
+  const addBtn = document.getElementById("addCategoryBtn");
+  const closeBtn = document.getElementById("closeModal");
+  const form = document.getElementById("addCategoryForm");
 
-      // Start automatically
-      startSummaryScroll();
+  addBtn.addEventListener("click", () => (modal.style.display = "flex"));
+  closeBtn.addEventListener("click", () => (modal.style.display = "none"));
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
 
-      // Pause on hover
-      summarySection.addEventListener("mouseenter", stopSummaryScroll);
-      summarySection.addEventListener("mouseleave", startSummaryScroll);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("categoryName").value.trim();
+    if (!name) return alert("Please enter category name");
+    accessories.push({
+      id: Date.now(),
+      name,
+      icon: "inventory_2",
+      total: 0,
+      available: 0,
+      issued: 0,
+      repair: 0,
+    });
+    loadAccessories();
+    modal.style.display = "none";
+    form.reset();
+  });
 
-      //! Sync countdown logic
-      // Sync countdown logic
-      let countdown = 59;
-      const syncCountdown = document.getElementById("syncCountdown");
-      const syncNowBtn = document.getElementById("syncNow");
-      const lastSync = document.getElementById("lastSync");
+  loadAccessories();
+</script>
 
-      function updateSyncTime() {
-        const now = new Date();
-        const formatted = now.toLocaleString("en-GB", {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-        lastSync.innerHTML = formatted.replace(",", "");
-      }
 
-      // Auto countdown
-      setInterval(() => {
-        if (!syncCountdown) return;
-        countdown--;
-        if (countdown <= 0) {
-          countdown = 59;
-          updateSyncTime();
-          console.log("Auto Sync Triggered");
-        }
-        syncCountdown.textContent = countdown + "s";
-      }, 1000);
-
-      // Manual Sync Now button
-      syncNowBtn.addEventListener("click", () => {
-        countdown = 59;
-        updateSyncTime();
-        syncNowBtn.innerHTML = '<i class="fas fa-check-circle"></i> Synced!';
-        syncNowBtn.style.background = "#17a2b8";
-
-        setTimeout(() => {
-          syncNowBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Sync Now';
-          syncNowBtn.style.background = "#28a745";
-        }, 1500);
-      });
-    </script>
+   
   </body>
 </html>
